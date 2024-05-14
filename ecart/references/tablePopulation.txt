@@ -1,0 +1,88 @@
+-- Populate ProductCategories Table
+INSERT INTO ProductCategories (prct_title) VALUES 
+    ('Electronics'),
+    ('Books'),
+	('Grocery'),
+	('Fasion'),
+    ('Furniture');
+
+INSERT INTO HSNCodes (hsnc_hsncode, hsnc_gstc_percentage) VALUES
+('HSN1', 18),
+('HSN2', 8),
+('HSN3', 5),
+('HSN4', 15),
+('HSN5', 20);
+
+
+INSERT INTO ProductStock (prod_id, prod_stock) VALUES
+(1, 100),
+(2, 50),
+(3, 75),
+(4, 200),
+(5, 150),
+(6, 100),
+(7, 300),
+(8, 100),
+(9, 150),
+(10, 200),
+(11, 75),
+(12, 50),
+(13, 100),
+(14, 25),
+(15, 20),
+(16, 10),
+(17, 50),
+(18, 25),
+(19, 100),
+(20, 50);
+
+
+INSERT INTO UnserviceableRegions (pincode, prod_id) VALUES
+(560001, 4),
+(560001, 5),
+(560001, 6),
+(560003, 2),
+(560003, 7),
+(560003, 8),
+(560003, 9),
+(560004, 1),
+(560004, 3),
+(560004, 10);
+
+
+INSERT INTO ShippingDiscount (total_price_from, total_price_to, discount) VALUES
+(0, 1000, 5),
+(1000, 5000, 100),
+(5000, 10000, 150),
+(10000, 50000, 200),
+(50000, 100000, 250),
+(100000, 0, 300);
+
+
+INSERT INTO DiscountCoupon (dcpn_code, dcpn_value, no_of_cpn, dcpn_min_val, expire_date) VALUES
+('SAVE10', 10, 100, 1000, '2024-12-31'),
+('FESTIVE20', 20, 50, 5000, '2024-11-30'),
+('SPRING25', 25, 25, 10000, '2024-03-31'),
+('FIRST100', 100,100,500,'2024-06-01');
+
+INSERT INTO Products (prod_title, prod_prct_id, prod_hsnc_id, prod_brand, prod_image, prod_shipping_charge, prod_base_price) VALUES
+('Apple iPhone 13', 1, 1, 'Apple', 'https://th.bing.com/th?id=OPAC.GcDf%2bje4LfI1IA474C474&w=592&h=550&o=5&pid=21.1', 100, 74999),
+('Samsung Galaxy S21', 1, 1, 'Samsung', 'https://cdn.ruf.si/wp-content/uploads/sites/832/2021/01/005.jpg', 100, 59999),
+('Sony WH-1000XM4', 1, 1, 'Sony', 'https://www.bhphotovideo.com/images/images2500x2500/sony_wh1000xm4_b_wh_1000xm4_wireless_noise_canceling_over_ear_1582549.jpg', 100, 24999),
+('Becoming by Michelle Obama', 2, 2, 'Michelle Obama', 'https://www.webdelico.com/wp-content/uploads/2021/03/81E1q-oBd6L-1378x2048.jpg', 100, 899),
+('Educated by Tara Westover', 2, 2, 'Tara Westover', 'https://tse4.mm.bing.net/th/id/OIP.8vsWnadqpWhLYwmX6siA9wHaLJ?rs=1&pid=ImgDetMain', 200, 1050),
+('The Silent Patient by Alex Michaelides', 2, 2, 'Alex Michaelides', 'https://dglibrary.org/wp-content/uploads/2020/08/91BbLCJOruL.jpg', 200, 560),
+('Organic Bananas', 3, 3, NULL, 'https://www.thelittlebigstore.com.au/wp-content/uploads/2016/06/1068c6fcfa683b9b804a671b3d3271f5ffbd8c65.jpg', 100, 44),
+('Almond Milk', 3, 3, NULL, 'https://tse1.mm.bing.net/th/id/OIP.n_I0pII1f-nc7RZWUj6zlAHaHa?rs=1&pid=ImgDetMain', 100, 225),
+('Brown Rice', 3, 3, NULL, 'https://tse4.mm.bing.net/th/id/OIP.pS9WEx1RGpivVdh9SvbxQgHaHa?rs=1&pid=ImgDetMain', 100, 150),
+('Organic Eggs', 3, 3, NULL, 'https://tse2.mm.bing.net/th/id/OIP.AV3nDbx8mhbIU4bYslMmSwHaJ4?rs=1&pid=ImgDetMain', 100, 375),
+('Levis Jeans', 4, 4, 'Levis', 'https://tse2.mm.bing.net/th/id/OIP.7RHhE2g4qpVZIbssyxxLmwHaJQ?rs=1&pid=ImgDetMain', 200, 3750),
+('Nike Sneakers', 4, 4, 'Nike', 'https://tse2.mm.bing.net/th/id/OIP.e7QPsuPwZLFxByLM1rXv6wHaE8?rs=1&pid=ImgDetMain', 500, 6750),
+('Adidas T-Shirt', 4, 4, 'Adidas', 'https://tse1.mm.bing.net/th/id/OIP.N70ZBDKx9u8mj0W_17KefgHaJT?rs=1&pid=ImgDetMain', 500, 1875),
+('IKEA Desk', 5, 5, 'IKEA', 'https://tse2.mm.bing.net/th/id/OIP.28sN78CV8_RgJpJS_aXPXQHaHa?rs=1&pid=ImgDetMain', 500, 15000),
+('Ashley Furniture Sofa', 5, 5, 'Ashley Furniture', 'https://wakefitdev.gumlet.io/img/sofa-sets/napper/regular/lifestyle/FMSG.jpg?w=1242', 1000, 37500),
+('Tempur-Pedic Mattress', 5, 5, 'Tempur-Pedic', 'https://wakefitdev.gumlet.io/img/mattress/dreampod/new/1.jpg?w=1242', 1000, 97500),
+('Dell XPS 13', 1, 1, 'Dell', 'https://images-na.ssl-images-amazon.com/images/I/91WgL3IbNIL.jpg', 1000, 89999),
+('Canon EOS R5', 1, 1, 'Canon', 'https://sm.pcmag.com/t/pcmag_uk/review/c/canon-eos-/canon-eos-r5_p5vj.1920.jpg', 1000, 292499),
+('Where the Crawdads Sing by Delia Owens', 2, 2, 'Delia Owens', 'https://tse2.mm.bing.net/th/id/OIP.ZQl0oTiRhldbjANeVUoA7wHaLq?rs=1&pid=ImgDetMain', 200, 1199),
+('Organic Chicken Breast', 3, 3, NULL, 'https://tse2.mm.bing.net/th/id/OIP.BDMeeyTlOoqeHc-e7v_vbgHaHa?rs=1&pid=ImgDetMain', 200, 750);

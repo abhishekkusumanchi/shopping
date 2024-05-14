@@ -1,0 +1,40 @@
+-- Create the trigger function
+CREATE OR REPLACE FUNCTION reduce_coupon_count() 
+RETURNS TRIGGER AS $$
+BEGIN
+    -- Check if the dcpn_code is not null
+    IF NEW.dcpn_code IS NOT NULL THEN
+        -- Update the number of coupons
+        UPDATE DiscountCoupon 
+        SET no_of_cpn = no_of_cpn - 1
+        WHERE dcpn_code = NEW.dcpn_code;
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Create the trigger
+CREATE TRIGGER after_order_insert
+AFTER INSERT ON Orders
+FOR EACH ROW
+EXECUTE FUNCTION reduce_coupon_count();
+
+
+
+CREATE OR REPLACE FUNCTION reduce_stock_quantity()
+RETURNS TRIGGER AS $$
+BEGIN
+    -- Reduce the stock quantity
+    UPDATE productstock
+    SET prod_stock = prod_stock - NEW.quantity
+    WHERE prod_id = NEW.product_id;
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Create the trigger
+CREATE TRIGGER after_order_product_insert
+AFTER INSERT ON Order_Product
+FOR EACH ROW
+EXECUTE FUNCTION reduce_stock_quantity();
